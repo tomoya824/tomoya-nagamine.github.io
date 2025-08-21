@@ -1,0 +1,85 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Iverse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="app-header" class="hidden">
+    <h1>Iverse</h1>
+    <nav>
+      <button class="nav-btn" data-target="view-home" type="button">マイページ</button>
+      <button class="nav-btn" data-target="view-ai" type="button">AIおすすめ</button>
+      <button class="nav-btn" data-target="view-chat" type="button">メッセージ</button>
+      <button id="btn-logout" class="outline" type="button">ログアウト</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ログイン -->
+    <section id="view-login" class="view">
+      <div class="login-wrap">
+        <h2>ログイン</h2>
+        <div class="card">
+          <input id="login-name" type="text" placeholder="ユーザー名" autocomplete="username" />
+          <input id="login-pass" type="password" placeholder="パスワード" autocomplete="current-password" />
+          <button id="login-btn" type="button">ログイン</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- マイページ -->
+    <section id="view-home" class="view hidden">
+      <h2>マイページ</h2>
+      <div class="card">
+        <p><strong>ユーザー名：</strong><span id="me-name">未ログイン</span></p>
+        <label for="my-goal">目的</label>
+        <input id="my-goal" type="text" placeholder="例：起業、英語学習、データ分析 など" />
+        <label for="my-skills">スキル</label>
+        <input id="my-skills" type="text" placeholder="例：英会話, プレゼン, Python" />
+        <button id="save-me" type="button">保存しておすすめを見る</button>
+        <div id="me-stats" class="hint" style="margin-top:8px;"></div>
+      </div>
+    </section>
+
+    <!-- AIおすすめ -->
+    <section id="view-ai" class="view hidden">
+      <h2>AIおすすめ</h2>
+      <p class="hint">目的一致＋スキル類似＋実績でスコアリング</p>
+      <div id="ai-list" class="grid"></div>
+    </section>
+
+    <!-- メッセージ（デモ） -->
+    <section id="view-chat" class="view hidden">
+      <h2>メッセージ</h2>
+      <div class="card">
+        <div id="chat-header" class="chat-header">相手：<span id="chat-partner">未選択</span></div>
+        <div id="chat-log" class="chat-log"></div>
+        <div class="chat-input">
+          <input id="chat-text" type="text" placeholder="メッセージを入力" />
+          <button id="chat-send" type="button">送信</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- プロフィール詳細モーダル -->
+  <div id="profile-modal" class="modal hidden">
+    <div class="modal-body">
+      <h3 id="pm-name">名前</h3>
+      <p>目的：<span id="pm-goal" class="badge"></span></p>
+      <div id="pm-skills" class="pm-skills"></div>
+      <div class="modal-actions">
+        <button id="pm-connect" type="button">この人とつながる</button>
+        <button id="pm-close" type="button" class="outline">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">© 2025 Iverse </footer>
+  <script src="script.js"></script>
+</body>
+</html>
