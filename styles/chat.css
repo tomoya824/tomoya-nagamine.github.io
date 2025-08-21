@@ -1,0 +1,11 @@
+/* chat.css */
+.chat-header{ font-size:14px; color:#6b7280; margin-bottom:8px; }
+.chat-log{ height:320px; overflow:auto; background:#fff; border:1px solid #eee; border-radius:12px; padding:12px; display:flex; flex-direction:column; gap:8px; }
+.chat-msg{ max-width:75%; padding:8px 12px; border-radius:12px; background:#eef3ff; }
+.chat-msg.me{ align-self:flex-end; background:#d1fae5; }
+.chat-input{ margin-top:8px; display:flex; gap:8px; }
+.chat-input input{ flex:1; }
+
+/* minor tweaks */
+.chat-log{ border-color:#e5e7eb; }
+.chat-msg{ line-height:1.3; } 
