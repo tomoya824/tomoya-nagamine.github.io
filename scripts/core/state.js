@@ -213,4 +213,4 @@ export function load(){
     state.users = [...byName.values()];
     state.me = saved.me || null;
   }catch(e){ console.warn("restore failed", e); }
-} 
+}

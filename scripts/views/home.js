@@ -28,4 +28,4 @@ export function fillHomeFromState(){
   if (nameEl) nameEl.textContent = state.me.name || "未ログイン";
   if (goalEl) goalEl.value = state.me.goal || "";
   if (skillsEl) skillsEl.value = (state.me.skills||[]).join(", ");
-} 
+}

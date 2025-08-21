@@ -9,4 +9,4 @@
 /* enhanced visuals */
 .group-card{ display:flex; flex-direction:column; gap:8px; background:#f8fafc; border:1px solid #e2e8f0; box-shadow:0 3px 6px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .group-card:hover{ transform: translateY(-4px); box-shadow: 0 6px 14px rgba(0,0,0,0.18); }
-.group-card h4{ display:flex; align-items:center; gap:6px; margin-bottom:10px; } 
+.group-card h4{ display:flex; align-items:center; gap:6px; margin-bottom:10px; }

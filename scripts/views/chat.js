@@ -51,4 +51,4 @@ function sendChat(){
   }
 
   setTimeout(()=>pushMsg("いいですね！次にいつ話せますか？", "them"), 600);
-} 
+}

@@ -69,4 +69,4 @@ export function renderAI(){
       aiList.appendChild(div);
     });
   }
-} 
+}

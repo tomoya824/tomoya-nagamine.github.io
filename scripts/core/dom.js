@@ -14,4 +14,4 @@ export function show(el){
 export function setActiveNav(targetId){
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
   document.querySelector(`.nav-btn[data-target="${targetId}"]`)?.classList.add("active");
-} 
+}
