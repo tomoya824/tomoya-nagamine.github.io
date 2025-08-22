@@ -1,3 +1,74 @@
+# Iverse
+
+何かを共にする仲間を探すマッチングアプリ
+
+## 開発環境
+
+- VS Code + Live Server 推奨
+  Live Server の導入と使用方法
+
+1. vscode 左側の拡張機能(田に似たアイコン)を押す
+2. 開いたサイドバーの上の検索バーに「Live Server Ritwick Dey」を入力して検索
+3. install ボタンを押す
+4. vscode 画面右下に「Go Live」というボタンが増え、押したら自動的にサイトが開く(開かない場合は「 http://127.0.0.1:5500/pages/top/index.html 」をブラウザのURL入力欄に)
+
+- GitHub Pages で公開中(url：https://tanaka-0224.github.io/Iverse/pages/top/index.html)
+
+👉 最初は GitHub Pages、動作確認が安定したら Netlify とか Vercel に移行。要検討
+
+## 開発手順
+
+branch 命名規則：feature/issue-[実施する issue 番号]
+
+1. 取り組む issue を決める(url：https://github.com/users/tanaka-0224/projects/5/views/1)
+   ＊取り組む issue を 1 と仮定
+
+2. 自分がいるブランチが develop であることを確認(ターミナル：git branch→develop の横に*があることを確認)
+
+3. 命名規則に則って branch を切る(ターミナル：git checkout -b feature/issue-1)
+
+4. 作業する
+
+5. 作業完了したら github にコードをあげる(ターミナル：git add . → ターミナル：git commit -m "[やった作業を簡潔に]" → ターミナル：git push origin feature/issue-1)
+
+6. Pull requests タブに遷移(url：https://github.com/tanaka-0224/Ivrese/pulls )し、ボタンを押し、テンプレに沿って作成
+
+7. Review 依頼を出す(田中か藺牟田)
+
+8. 承認をもらったら merge する
+
+以下ループ
+
+## 技術スタック
+
+初期
+
+### フロントエンド
+* HTML
+* CSS
+* JavaScript
+
+### バックエンド
+* Firebase
+
+### その他ツール
+* Git
+* GitHub
+* Figma
+
+理想
+### フロントエンド
+* TypeScript
+* React
+* Next.js
+### バックエンド
+* Firebase
+### その他ツール
+* Git
+* Github
+* Figma
+
+
 ## ファイル構成
 
 ```text
@@ -48,18 +119,6 @@ tomoya824.github.io/
 - `scripts/views/profile-modal.js`
   - モーダルの開閉、対象ユーザーの表示、接続ボタンでチャットへ遷移。
 
-## 動作環境と実行方法
-
-- ビルド不要、静的ホスティングでそのまま動作（ES Modulesに対応したモダンブラウザ前提）。
-- ローカルで確認する方法（例）：
-
-```bash
-# Pythonの簡易HTTPサーバーを使う例（Mac標準Python3）
-ブラウザで http://localhost:8000 を開く
-```
-
-※ ファイルを直接ダブルクリックで開くと、`fetch` による断片読み込みがCORS制約で失敗する場合があります。ローカルサーバー経由を推奨します。
-
 ## 拡張/開発のヒント
 
 - 新しいビューを追加するには：
@@ -71,7 +130,3 @@ tomoya824.github.io/
 ## データ保存
 
 - ブラウザの LocalStorage（キー: `iverse_state_v1`）を使用。`state.me` と `state.users` を保存/復元します。
-
-## ライセンス
-
-- プロジェクトのライセンスが未指定のため、必要に応じて追記してください。 
