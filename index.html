@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Iverse</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles/base.css" />
 </head>
 <body>
   <header id="app-header" class="hidden">
@@ -19,7 +19,7 @@
   </header>
 
   <main>
-    <!-- ログイン -->
+    <!-- ログイン（そのまま保持） -->
     <section id="view-login" class="view">
       <div class="login-wrap">
         <h2>ログイン</h2>
@@ -31,55 +31,57 @@
       </div>
     </section>
 
-    <!-- マイページ -->
-    <section id="view-home" class="view hidden">
-      <h2>マイページ</h2>
-      <div class="card">
-        <p><strong>ユーザー名：</strong><span id="me-name">未ログイン</span></p>
-        <label for="my-goal">目的</label>
-        <input id="my-goal" type="text" placeholder="例：起業、英語学習、データ分析 など" />
-        <label for="my-skills">スキル</label>
-        <input id="my-skills" type="text" placeholder="例：英会話, プレゼン, Python" />
-        <button id="save-me" type="button">保存しておすすめを見る</button>
-        <div id="me-stats" class="hint" style="margin-top:8px;"></div>
-      </div>
-    </section>
-
-    <!-- AIおすすめ -->
-    <section id="view-ai" class="view hidden">
-      <h2>AIおすすめ</h2>
-      <p class="hint">目的一致＋スキル類似＋実績でスコアリング</p>
-      <div id="ai-list" class="grid"></div>
-    </section>
-
-    <!-- メッセージ（デモ） -->
-    <section id="view-chat" class="view hidden">
-      <h2>メッセージ</h2>
-      <div class="card">
-        <div id="chat-header" class="chat-header">相手：<span id="chat-partner">未選択</span></div>
-        <div id="chat-log" class="chat-log"></div>
-        <div class="chat-input">
-          <input id="chat-text" type="text" placeholder="メッセージを入力" />
-          <button id="chat-send" type="button">送信</button>
-        </div>
-      </div>
-    </section>
+    <!-- 以下はインクルードで読み込み -->
+    <div data-include="views/home.html" data-css="styles/home.css"></div>
+    <div data-include="views/ai.html" data-css="styles/ai.css"></div>
+    <div data-include="views/chat.html" data-css="styles/chat.css"></div>
   </main>
 
-  <!-- プロフィール詳細モーダル -->
-  <div id="profile-modal" class="modal hidden">
-    <div class="modal-body">
-      <h3 id="pm-name">名前</h3>
-      <p>目的：<span id="pm-goal" class="badge"></span></p>
-      <div id="pm-skills" class="pm-skills"></div>
-      <div class="modal-actions">
-        <button id="pm-connect" type="button">この人とつながる</button>
-        <button id="pm-close" type="button" class="outline">閉じる</button>
-      </div>
-    </div>
-  </div>
+  <!-- プロフィール詳細モーダル（インクルード） -->
+  <div data-include="views/profile-modal.html" data-css="styles/modal.css"></div>
 
   <footer class="app-footer">© 2025 Iverse </footer>
-  <script src="script.js"></script>
+
+  <!-- 断片インクルードローダー（挿入完了後にアプリを起動） -->
+  <script>
+    (function(){
+      function ensureCss(url){
+        if (!url) return;
+        const exists = Array.from(document.querySelectorAll('link[rel="stylesheet"]')).some(l => l.getAttribute('href') === url);
+        if (!exists){
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = url;
+          document.head.appendChild(link);
+        }
+      }
+
+      const containers = Array.from(document.querySelectorAll('[data-include]'));
+      if (containers.length === 0) return startApp();
+      let loaded = 0;
+      containers.forEach(async (el)=>{
+        const cssAttr = el.getAttribute('data-css');
+        if (cssAttr){ cssAttr.split(',').map(s=>s.trim()).forEach(ensureCss); }
+
+        const url = el.getAttribute('data-include');
+        try{
+          const res = await fetch(url, { cache: 'no-cache' });
+          const html = await res.text();
+          el.outerHTML = html;
+        }catch(e){
+          console.error('include failed:', url, e);
+        }finally{
+          loaded++;
+          if (loaded === containers.length) startApp();
+        }
+      });
+      function startApp(){
+        const s = document.createElement('script');
+        s.type = 'module';
+        s.src = 'scripts/app.js';
+        document.body.appendChild(s);
+      }
+    })();
+  </script>
 </body>
 </html>

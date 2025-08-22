@@ -1,0 +1,12 @@
+/* ai.css */
+#ai-list { max-width: 1000px; margin: 40px auto; padding: 20px; }
+/* base group card */
+.group-card{ background:#fff;border:1px solid #eee;border-radius:12px;padding:14px; }
+.group-card h4{ margin:0 0 8px; color:#333; }
+.member{ font-size:13px; color:#666; margin:4px 0; }
+.meta{ color:#6b7280; font-size:12px; margin-top:4px; }
+
+/* enhanced visuals */
+.group-card{ display:flex; flex-direction:column; gap:8px; background:#f8fafc; border:1px solid #e2e8f0; box-shadow:0 3px 6px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.group-card:hover{ transform: translateY(-4px); box-shadow: 0 6px 14px rgba(0,0,0,0.18); }
+.group-card h4{ display:flex; align-items:center; gap:6px; margin-bottom:10px; }
