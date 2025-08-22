@@ -10,11 +10,11 @@
 1. vscode 左側の拡張機能(田に似たアイコン)を押す
 2. 開いたサイドバーの上の検索バーに「Live Server Ritwick Dey」を入力して検索
 3. install ボタンを押す
-4. vscode 画面右下に「Go Live」というボタンが増え、押したら自動的にサイトが開く(開かない場合は「 http://127.0.0.1:5500/pages/top/index.html 」をブラウザのURL入力欄に)
+4. vscode 画面右下に「Go Live」というボタンが増え、押したら自動的にサイトが開く(url：http://127.0.0.1:5500/ )
 
-- GitHub Pages で公開中(url：https://tanaka-0224.github.io/Iverse/pages/top/index.html)
+- GitHub Pages で公開中(url：https://tanaka-0224.github.io/Iverse/)
 
-👉 最初は GitHub Pages、動作確認が安定したら Netlify とか Vercel に移行。要検討
+👉 最初は GitHub Pages、Next.jsとかに移行後、動作確認が安定したら Netlify とか Vercel に移行。要検討
 
 ## 開発手順
 
