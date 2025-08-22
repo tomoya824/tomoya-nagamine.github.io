@@ -18,6 +18,18 @@
 
 ## 開発手順
 
+--------
+この欄は最初の一回だけ
+
+1. リモートリポジトリをローカルにクローン
+   git clone https://github.com/tanaka-0224/Iverse.git
+2. ディレクトリに移動する: クローンしたリポジトリのディレクトリに移動
+   ターミナルにコピペ：cd Iverse
+3. ブランチを確認する: 現在のブランチを確認します。クローン直後は通常mainブランチにいることを確認
+   ターミナルにコピペ：git branch
+4. developブランチに切り替える: 開発はdevelopブランチから始めるので、まずdevelopブランチに切り替え
+   ターミナルにコピペ：git checkout develop
+--------
 branch 命名規則：feature/issue-[実施する issue 番号]
 
 1. 取り組む issue を決める(url：https://github.com/users/tanaka-0224/projects/5/views/1)
