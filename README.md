@@ -1,3 +1,88 @@
+# Iverse
+
+何かを共にする仲間を探すマッチングアプリ
+
+## 開発環境
+
+- VS Code + Live Server 推奨
+  Live Server の導入と使用方法
+
+1. vscode 左側の拡張機能(田に似たアイコン)を押す
+2. 開いたサイドバーの上の検索バーに「Live Server Ritwick Dey」を入力して検索
+3. install ボタンを押す
+4. vscode 画面右下に「Go Live」というボタンが増え、押したら自動的にサイトが開く(url：http://127.0.0.1:5500/ )
+
+- GitHub Pages で公開中(url：https://tanaka-0224.github.io/Iverse/)
+
+👉 最初は GitHub Pages、Next.jsとかに移行後、動作確認が安定したら Netlify とか Vercel に移行。要検討
+
+## 開発手順
+
+--------
+この欄は最初の一回だけ
+
+1. リモートリポジトリをローカルにクローン
+   git clone https://github.com/tanaka-0224/Iverse.git
+2. ディレクトリに移動する: クローンしたリポジトリのディレクトリに移動
+   ターミナルにコピペ：cd Iverse
+3. ブランチを確認する: 現在のブランチを確認します。クローン直後は通常mainブランチにいることを確認
+   ターミナルにコピペ：git branch
+4. developブランチに切り替える: 開発はdevelopブランチから始めるので、まずdevelopブランチに切り替え
+   ターミナルにコピペ：git checkout develop
+--------
+branch 命名規則：feature/issue-[実施する issue 番号]
+
+1. 取り組む issue を決める(url：https://github.com/users/tanaka-0224/projects/5/views/1)
+   ＊取り組む issue を 1 と仮定
+
+2. 自分がいるブランチが develop であることを確認(ターミナル：git branch→develop の横に*があることを確認)
+
+3. 命名規則に則って branch を切る(ターミナル：git checkout -b feature/issue-1)
+
+4. 作業する
+
+5. 作業完了したら github にコードをあげる(ターミナル：git add . → ターミナル：git commit -m "[やった作業を簡潔に]" → ターミナル：git push origin feature/issue-1)
+
+6. Pull requests タブに遷移(url：https://github.com/tanaka-0224/Iverse/pulls )し、ボタンを押し、テンプレに沿って作成
+
+7. Review 依頼を出す(田中か藺牟田)
+
+8. 修正コメントもらったら修正事項を満たすようにfeature/issue-1で作業する(5に戻る　もらわなかったら9に進む)
+
+9. 承認をもらったら merge する
+
+以下ループ
+
+## 技術スタック
+
+初期
+
+### フロントエンド
+* HTML
+* CSS
+* JavaScript
+
+### バックエンド
+* Firebase
+
+### その他ツール
+* Git
+* GitHub
+* Figma
+
+理想
+### フロントエンド
+* TypeScript
+* React
+* Next.js
+### バックエンド
+* Firebase
+### その他ツール
+* Git
+* Github
+* Figma
+
+
 ## ファイル構成
 
 ```text
@@ -48,18 +133,6 @@ tomoya824.github.io/
 - `scripts/views/profile-modal.js`
   - モーダルの開閉、対象ユーザーの表示、接続ボタンでチャットへ遷移。
 
-## 動作環境と実行方法
-
-- ビルド不要、静的ホスティングでそのまま動作（ES Modulesに対応したモダンブラウザ前提）。
-- ローカルで確認する方法（例）：
-
-```bash
-# Pythonの簡易HTTPサーバーを使う例（Mac標準Python3）
-ブラウザで http://localhost:8000 を開く
-```
-
-※ ファイルを直接ダブルクリックで開くと、`fetch` による断片読み込みがCORS制約で失敗する場合があります。ローカルサーバー経由を推奨します。
-
 ## 拡張/開発のヒント
 
 - 新しいビューを追加するには：
@@ -71,7 +144,3 @@ tomoya824.github.io/
 ## データ保存
 
 - ブラウザの LocalStorage（キー: `iverse_state_v1`）を使用。`state.me` と `state.users` を保存/復元します。
-
-## ライセンス
-
-- プロジェクトのライセンスが未指定のため、必要に応じて追記してください。 
